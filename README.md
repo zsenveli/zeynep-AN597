@@ -1,2 +1,2 @@
 # zeynep-AN597
-The edited ReadMe file. 
+The edited ReadMe document. 
