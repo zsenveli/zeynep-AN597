@@ -1,0 +1,44 @@
+---
+title: "Monkey-Homework_Week4-Zeynep"
+author: "Zeynep Senveli"
+date: "9/28/2017"
+output: html_document
+---
+
+The probability of hearing at least eight calls during any given session: 
+```{r}
+X <- 1-ppois(q=7, lambda=15)
+X
+```
+
+The probability that she will hear no calls:
+```{r}
+X <- dpois(x=0, lambda=15)
+X
+```
+
+The probability that she will hear exactly three calls:
+```{r}
+X <- dpois(x=3, lambda=15)
+X
+```
+
+The relevant Poisson mass function over the values in a range between zero and thirty:
+```{r}
+x<-0:30
+l<-15
+probset<-dpois(x=x, lambda=l)
+barplot(probset, names.arg=x, space=0, xlab = "Number of Calls in a Given Session", ylab = "Probability of Call", main = "Probability Mass Function")
+```
+
+Simulation of 104 results from this distribution:
+```{r}
+X <- rpois(n=104,lambda=15)
+X
+```
+
+Plotting a histogram of the simulated results:
+```{r}
+X2 <- rpois(n=104,lambda=15)
+hist(X2, xlab = "Number of Observations Per Session", ylab = "The Number of Sessions Calls are Observed In", xlim = c(0,30), main = "Simulation Results", space = 0)
+```
