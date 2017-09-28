@@ -3,18 +3,22 @@ title: "Zeynep-homework01"
 author: "Zeynep Senveli"
 date: "16 September 2017"
 output: html_document
+---
 
 # Zeynep - Homework 01- Module 04 Challenges
 install.packages("stringr")
 require(stringr)
 
 # 1.Ulysses challenge.
+```{r}
 u <- c("Stately,", "plump", "Buck", "Mulligan", "came", "from", "the", "stairhead,", "bearing", "a", "bowl", "of", "lather", "on", "which", "a", "mirror", "and", "a", "razor", "lay", "crossed")
 u
+```
 ## Extracting every 3rd element
+```{r}
 uspt<- u[seq(from=1,to=22, by=3)]
 uspt
-
+```
 ###Alternative way for future reference for self:
 # I had to type in every element separately. Here's an alternative (but slightly more complicated) way to do that in case you can't do that next time:
 # x <- "Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed." 
@@ -24,12 +28,12 @@ uspt
 # xspt <- c(unlist(strsplit(x2," "))) 
 #creates as a list
 # xspt
-
 ### 
 
 # 2.Matrix element extraction.
 ## (You asked all of them to be assigned to x so I just assumed with every bullet, we would be over-writing x, not combining every extraction as the matrix sizes were different:
 ### Extracting 2nd, 3rd, and 6th columns
+```{r}
 m <- matrix(data=1:80, nrow=8, ncol=10,byrow=FALSE)
 m
 m2c <- m[ ,2]
@@ -37,17 +41,22 @@ m3c <- m[, 3]
 m6c <- m[ ,6]
 x <- cbind(m2c, m3c, m6c)
 x
+```
 ### Extracting 6th to 8th row
+```{r}
 x <- m[6:8, ]
 m68r
 x <- m68r
 x
+```
 ### Extracting 2,2 to 6,9
+```{r}
 m <- matrix(data=1:80, nrow=8, ncol=10,byrow=FALSE)
 x <- m[2:6, 2:9]
 x
-
+```
 # 3. Four-dimensional array construction. 
+```{r}
 a <- array(data = 400:1, dim = c(5,5,4,4))
 a
 a1 <- a[1,1,1,2]
@@ -56,52 +65,63 @@ a2 <- a[2,3,2, ]
 a2
 a3 <- a[1:5,1:5,3,3]
 a3
-
+```
 # 4. Creating primate taxonomy list.
 # Listing the lowest level nomenclature using quotations
-Lemuroidea <- list("Cheirogaleidae", "Lepilemuridae", "Indriidae", "Lemuridae", "Daubentoniidae")
 # As far as I can tell, the list is still complete without using the names function for the lowest level listing. I still wrote them to see what they would do (it gets you two title names and one species name)
+```{r}
+Lemuroidea <- list("Cheirogaleidae", "Lepilemuridae", "Indriidae", "Lemuridae", "Daubentoniidae")
 names(Lemuroidea)<-c("Cheirogaleidae", "Lepilemuridae", "Indriidae", "Lemuridae", "Daubentoniidae")
 Lorisoidea <- list("Lorisidae", "Galagidae")
 names(Lorisoidea) <- c("Lorisidae", "Galagidae")
+```
 # Listing a higher level nomenclature without quotations
+```{r}
 Strepsirhini <- list(Lemuroidea, Lorisoidea)
 names(Strepsirhini) <- c("Lemuroidea", "Lorisoidea")
-
 Tarsioidea <- list("Tarsiidae")
 names(Tarsioidea) <- c("Tarsiidae")
-
 Catarrhini <- list("Cercopithecidae", "Hylobatidae", "Hominidae")
 names(Catarrhini) <- c("Cercopithecidae", "Hylobatidae", "Hominidae")
 Platyrrhini <- list("Cebidae", "Atelidae", "Pitheciidae")
 names(Platyrrhini) <- c("Cebidae", "Atelidae", "Pitheciidae")
 Anthropoidea <- list(Catarrhini, Platyrrhini)
 names(Anthropoidea) <- c("Catarrhini", "Platyrrhini")
-
 Haplorhini <- list(Anthropoidea, Tarsioidea)
 names(Haplorhini) <- c("Anthropoidea", "Tarsioidea")
-
 Primates <- list(Haplorhini, Strepsirhini)
 names(Primates) <- c("Haplorhini", "Strepsirhini")
 Primates
-
+```
 
 # 5. Matrix filling challenge.
+```{r}
 mx <- matrix(data= c(3,0,1,23,1,2,33,1, 1,42,0,1,41,0,2), nrow=5, ncol=3, byrow = TRUE)
 mx
+```
 # Coercing this matrix into a dataframe
+```{r}
 df <- data.frame(mx)
 df
+```
 # Coercing the second column to be logical valued
+```{r}
 df2c <- as.logical(df[,2])
 df2c
+```
 # Coercing the third column to be factor valued
+```{r}
 df3c <- as.factor(df[,3])
 df3c
 str(df)
+```
 # Extracting second and third columns from the dataframe so that I can put the new ones (logical and factorial) in
+```{r}
 dfnew <- (df[,-2:-3])
 dfnew
+```
 # Now adding the coerced columns
+```{r}
 dfnewest <- cbind(dfnew, df2c, df3c)
 dfnewest
+```
